@@ -7,69 +7,119 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #ef4256;
+      --text-dark: #000;
+      --text-light: #fff;
+    }
+
     body {
       margin: 0;
       font-family: "Cairo", sans-serif;
-      background: linear-gradient(to bottom, #2563eb, #1e3a8a);
-      color: white;
+      background: linear-gradient(135deg, var(--primary) 0%, #000 100%);
+      color: var(--text-light);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
       text-align: center;
+      overflow: hidden;
     }
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       margin-bottom: 1rem;
+      line-height: 1.2;
+      animation: fadeInDown 1s ease;
+    }
+
+    h1 span {
+      color: var(--primary);
+      background: #fff;
+      padding: 0 10px;
+      border-radius: 8px;
     }
 
     p {
       font-size: 1.2rem;
       margin-bottom: 2rem;
       max-width: 600px;
+      opacity: 0.9;
+      animation: fadeIn 1.2s ease;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      animation: fadeInUp 1.3s ease;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
-      padding: 14px 24px;
-      margin: 10px;
+      padding: 14px 28px;
       border-radius: 12px;
       text-decoration: none;
       font-weight: 600;
       transition: all 0.3s ease;
+      font-size: 1rem;
+      cursor: pointer;
     }
 
-    .btn-play {
-      background: #facc15;
-      color: #000;
-    }
-    .btn-play:hover {
-      background: #eab308;
+    .btn-download {
+      background: var(--text-light);
+      color: var(--primary);
+      box-shadow: 0 4px 10px rgba(255,255,255,0.2);
     }
 
-    .btn-apple {
-      background: #fff;
-      color: #1e3a8a;
-    }
-    .btn-apple:hover {
-      background: #f3f4f6;
+    .btn-download:hover {
+      background: #f3f3f3;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     }
 
     footer {
       position: absolute;
       bottom: 15px;
       font-size: 0.9rem;
-      color: #e5e7eb;
+      color: rgba(255,255,255,0.7);
+      animation: fadeIn 2s ease;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
   <main>
-    <h1>Welcome to <span style="color:#facc15">Masark</span></h1>
+    <h1>Welcome to <span>Masark</span></h1>
     <p>
       Learn, grow, and build your future with Masark.  
       Download the app now and start your journey!
@@ -77,13 +127,11 @@
 
     <div class="buttons">
       <a 
-        class="btn btn-play" 
+        class="btn btn-download" 
         href="masark.apk" 
         target="_blank">
-        📲 Get it on Play Store
+        📱 Download Now
       </a>
-
-       
     </div>
   </main>
 
